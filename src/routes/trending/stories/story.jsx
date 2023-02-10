@@ -6,7 +6,7 @@ import { useAddStory } from "../../../hooks/useStory";
 
 function Story({ story, user, isMe = false, withStory }) {
 	const [imageUrl, setImageUrl] = useState(
-		`http://localhost:8000/assets/users/stories/${story.image}`
+		`https://instello-api.onrender.com/assets/users/stories/${story.image}`
 	);
 	const [hasStory, setHasStory] = useState(withStory);
 
@@ -17,7 +17,7 @@ function Story({ story, user, isMe = false, withStory }) {
 	}, [withStory]);
 
 	useEffect(() => {
-		let imageStory = `http://localhost:8000/assets/users/stories/${story.image}`;
+		let imageStory = `https://instello-api.onrender.com/assets/users/stories/${story.image}`;
 		if (!withStory) {
 			imageStory = story.image;
 		}
@@ -39,7 +39,7 @@ function Story({ story, user, isMe = false, withStory }) {
 		[addStory]
 	);
 
-	const { getRootProps, getInputProps, isDragActive } = useDropzone({
+	const { getRootProps, getInputProps } = useDropzone({
 		accept: "image/*",
 		onDrop,
 	});

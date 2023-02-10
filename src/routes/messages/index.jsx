@@ -8,7 +8,7 @@ import { useUserQuery } from "../../hooks/useUser";
 import ChatMessages from "./chat-messages";
 import MessagesContext from "./message-context";
 
-const ENDPOINT = "http://localhost:8000";
+const ENDPOINT = process.env.REACT_APP_API_URL;
 let socket;
 
 function Messages() {
